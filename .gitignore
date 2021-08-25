@@ -3,6 +3,7 @@
 
 # NotFeed Files
 /target/
+notfeed
 
 # Logs
 logs

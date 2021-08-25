@@ -1,14 +1,8 @@
-name: LooperXX/ArxivDaily
+name: Archive LooperXX/ArxivDaily
 
 on:
-  push:
-    branches:
-      - main
   schedule:
-    # Adjust refresh schedule here. By default, it runs once per day.
-    # Syntax reference: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#schedule
-    # Recommended tool: https://crontab.guru/
-    - cron: "0,15,30,45 1,12,23 * * 1-5"
+    - cron: "30 12 * * 0"
 
 jobs:
   build:
@@ -39,9 +33,29 @@ jobs:
           tar -zxvf notfeed.tgz --strip-components 1 $(tar tf notfeed.tgz | grep /notfeed)
           chmod +x notfeed
       - name: Build rss
-        run: ./notfeed build
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        run: |
+          ./notfeed pdf
+      - uses: actions/cache@v2
+        name: Tectonic Cache
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target
+          path: ~/.cache/Tectonic
+          key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
+          restore-keys: |
+            ${{ runner.os }}-tectonic-
+      - uses: wtfjoke/setup-tectonic@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          biber-version: "latest"
+      - name: Run Tectonic
+        run:  tectonic target/output.tex
+      - name: Get Time
+        id: time
+        uses: nanzm/get-time-action@v1.1
+        with:
+          timeZone: 8
+          format: 'YYYY-MM-DD-HH-mm-ss'
+      - name: Upload pdf
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ steps.time.outputs.time }}.pdf
+          path: target/output.pdf
