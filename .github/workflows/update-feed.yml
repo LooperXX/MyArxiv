@@ -1,0 +1,47 @@
+name: NotCraft/NotFeed
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # Adjust refresh schedule here. By default, it runs once per day.
+    # Syntax reference: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#schedule
+    # Recommended tool: https://crontab.guru/
+    - cron: "0 23 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download NotFeed
+        env:
+          GITHUB_PAT: ${{ github.token }}
+          REPO: "NotCraft/NotFeed"
+          VERSION: "latest"
+          MATCH: "notfeed-.+-x86_64-unknown-linux-musl.tar.gz$"
+          RENAME: "notfeed.tgz"
+        shell: bash
+        run: |
+          curl -sL --fail \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: Bearer ${GITHUB_PAT}" \
+              "https://api.github.com/repos/${REPO}/releases/${VERSION}" \
+              | jq -r ".assets | .[] | select(.name | test(\"${MATCH}\")) | .url" \
+              | tee asset.url
+          curl -sL --fail \
+            -H "Accept: application/octet-stream" \
+            -H "Authorization: Bearer ${GITHUB_PAT}" \
+              -o "${RENAME}" \
+              "$(cat asset.url)"
+          tar -zxvf notfeed.tgz --strip-components 1 $(tar tf notfeed.tgz | grep /notfeed)
+          chmod +x notfeed
+      - name: Build rss
+        run: ./notfeed build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target

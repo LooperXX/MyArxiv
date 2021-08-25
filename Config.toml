@@ -1,0 +1,21 @@
+site_title = "ArxivDaily"
+cache_max_days = 7
+sources = [
+    "http://export.arxiv.org/rss/cs.CL"
+]
+
+minify = true                     ## Optional: default is false
+# proxy = "http://127.0.0.1:7890" ## Optional: default is None, support http/https/socks
+# statics_dir   = "statics"       ## Optional: default is "statics"
+# templates_dir = "includes"      ## Optional: default is "includes"
+# cache_url = "https://GITHUB_USERNAME.github.io/REPO_NAME/cache.json"
+
+[scripts]
+# You can design your own hooks
+# For example:
+#   highlight = "scripts/highlight.rhai"
+# Then `highlight` is the hook you can use in templates
+# For example:
+#   {{highlight title}}
+
+# highlight = "scripts/highlight.rhai"
