@@ -1,4 +1,4 @@
-let titles_area = ["Task-oriented", "Goal-oriented", "Conversation", "Dialogue", "Dialog", "Cross-Modal", "Multi-Modal", "MultiModal", "Vision-and-Language", "Vision and Language", "Vision-Language", "V&L", "Spoken Language Understanding", "SLU", "Language and Vision", "Visual-Linguistic"];
+let titles_area = ["Task-oriented", "Goal-oriented", "Conversation", "Dialogue", "Dialog", "Cross-Modal", "Multi-Modal", "MultiModal", "Vision-and-Language", "Vision and Language", "Vision-Language", "Visual Language","V&L", "Spoken Language Understanding", "SLU", "Language and Vision", "Visual-Linguistic"];
 let titles_type = ["Dataset", "Survey", "Review", "Overview"];
 let titles_model = ["BERT", "GPT", "Transformer"];
 let titles_method = ["Contrastive Learning", "Contrastive", "Pre-train", "Pretrain", "Prompt", "Self-Supervised", "Distillation"];
