@@ -14,13 +14,13 @@ title = "Computer Vision and Pattern Recognition"
 
 [[sources]]
 limit = 100
-category = "cs.IR"
-title = "Information Retrieval"
+category = "cs.LG"
+title = "Machine Learning"
 
 [[sources]]
 limit = 100
-category = "cs.LG"
-title = "Machine Learning"
+category = "cs.IR"
+title = "Information Retrieval"
 
 [[sources]]
 limit = 100
