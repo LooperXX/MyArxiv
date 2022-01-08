@@ -1,20 +1,32 @@
 site_title = "ArxivDaily"
-cache_max_days = 7
-sources = [
-    "http://export.arxiv.org/rss/cs.CL",
-    "http://export.arxiv.org/rss/cs.IR",
-    "http://export.arxiv.org/rss/cs.MM",
-    "http://export.arxiv.org/rss/cs.CV",
-    "http://export.arxiv.org/rss/cs.LG"
-]
-minify = true
+limit_days = 7
 cache_url = "https://looperxx.github.io/ArxivDaily/cache.json"
 
-#proxy = "socks5://127.0.0.1:7890"
+[[sources]]
+limit = 100
+category = "cs.CL"
+title = "Computation and Language"
+
+[[sources]]
+limit = 100
+category = "cs.CV"
+title = "Computer Vision and Pattern Recognition"
+
+[[sources]]
+limit = 100
+category = "cs.IR"
+title = "Information Retrieval"
+
+[[sources]]
+limit = 100
+category = "cs.LG"
+title = "Machine Learning"
+
+[[sources]]
+limit = 100
+category = "cs.MM"
+title = "Multimedia"
 
 [scripts]
-download = "scripts/download.rhai"
-only_title = "scripts/only_title.rhai"
-render_author = "scripts/render_author.rhai"
 highlight_title = "scripts/highlight_title.rhai"
 highlight_author = "scripts/highlight_author.rhai"
