@@ -1,9 +1,11 @@
 # Idea
 .idea
 
+# Macos
+.DS_Store
+
 # NotFeed Files
 /target/
-notfeed
 
 # Logs
 logs
