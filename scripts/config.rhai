@@ -38,3 +38,4 @@ let authors_rg = authors_array.reduce(|sum, v| sum + "|" + v, start);
 
 export title_rg;
 export authors_rg;
+export meetings_rg;
