@@ -26,4 +26,4 @@ An RSS feed reader for "ArxivDaily".
 ## Acknowledgement
 - [AlongWY Version](https://github.com/AlongWY/ArxivDaily)
 - [Osmosfeed](https://github.com/osmoscraft/osmosfeed)
-- [My Osmosfeed Versino](https://github.com/LooperXX/ArxivDaily-Old)
+- [My Osmosfeed Version](https://github.com/LooperXX/ArxivDaily-Old)
