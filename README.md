@@ -1,6 +1,6 @@
 # About
 
-An RSS feed reader for "MyArxiv".
+MyArxiv, a customized Arxiv.
 
 ## Features
 
