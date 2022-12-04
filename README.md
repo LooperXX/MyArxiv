@@ -1,6 +1,6 @@
 # About
 
-An RSS feed reader for "ArxivDaily".
+An RSS feed reader for "MyArxiv".
 
 ## Features
 
@@ -24,6 +24,6 @@ An RSS feed reader for "ArxivDaily".
 - Powered By [NotFeed](https://github.com/NotCraft/NotFeed)
 
 ## Acknowledgement
-- [AlongWY Version](https://github.com/AlongWY/ArxivDaily)
+- [AlongWY Version](https://github.com/AlongWY/MyArxiv)
 - [Osmosfeed](https://github.com/osmoscraft/osmosfeed)
-- [My Osmosfeed Version](https://github.com/LooperXX/ArxivDaily-Old)
+- [My Osmosfeed Version](https://github.com/LooperXX/MyArxiv-Old)

@@ -1,4 +1,4 @@
-name: ArxivDaily
+name: MyArxiv
 
 on:
   workflow_dispatch:
