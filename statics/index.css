@@ -353,3 +353,7 @@ footer {
     padding: .2rem .4rem;
     vertical-align: middle;
 }
+
+.chip small {
+    font-size: 60%;
+}
